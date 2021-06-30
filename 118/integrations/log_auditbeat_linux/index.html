@@ -2287,44 +2287,45 @@ Plus in this case ensure the owner of the file is <code>root</code>: <code>sudo 
 <span class="linenos" data-linenos=" 2 "></span>module<span class="o">(</span><span class="nv">load</span><span class="o">=</span><span class="s2">&quot;imuxsock&quot;</span><span class="o">)</span>                                 <span class="c1"># provides support for local system logging</span>
 <span class="linenos" data-linenos=" 3 "></span>module<span class="o">(</span><span class="nv">load</span><span class="o">=</span><span class="s2">&quot;imklog&quot;</span> <span class="nv">permitnonkernelfacility</span><span class="o">=</span><span class="s2">&quot;on&quot;</span><span class="o">)</span>      <span class="c1"># provides kernel logging support</span>
 <span class="linenos" data-linenos=" 4 "></span>
-<span class="linenos" data-linenos=" 5 "></span>module<span class="o">(</span><span class="nv">load</span><span class="o">=</span><span class="s2">&quot;imfile&quot;</span> <span class="nv">PollingInterval</span><span class="o">=</span><span class="s2">&quot;10&quot;</span><span class="o">)</span>              <span class="c1">#needs to be done just once</span>
-<span class="linenos" data-linenos=" 6 "></span>input<span class="o">(</span><span class="nv">type</span><span class="o">=</span><span class="s2">&quot;imfile&quot;</span>
-<span class="linenos" data-linenos=" 7 "></span>      <span class="nv">File</span><span class="o">=</span><span class="s2">&quot;/tmp/auditbeat/auditbeat&quot;</span>
-<span class="linenos" data-linenos=" 8 "></span>      <span class="nv">Tag</span><span class="o">=</span><span class="s2">&quot;linux_auditbeat&quot;</span>
-<span class="linenos" data-linenos=" 9 "></span>      <span class="nv">Severity</span><span class="o">=</span><span class="s2">&quot;info&quot;</span>
-<span class="linenos" data-linenos="10 "></span>      <span class="nv">Facility</span><span class="o">=</span><span class="s2">&quot;local7&quot;</span><span class="o">)</span>
-<span class="linenos" data-linenos="11 "></span>
-<span class="linenos" data-linenos="12 "></span><span class="c1"># Use traditional timestamp format.</span>
-<span class="linenos" data-linenos="13 "></span><span class="nv">$ActionFileDefaultTemplate</span> RSYSLOG_TraditionalFileFormat
+<span class="linenos" data-linenos=" 5 "></span><span class="c1"># Use traditional timestamp format.</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="nv">$ActionFileDefaultTemplate</span> RSYSLOG_TraditionalFileFormat
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="c1"># Set the default permissions for all log files.</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nv">$FileOwner</span> root
+<span class="linenos" data-linenos="10 "></span><span class="nv">$FileGroup</span> adm
+<span class="linenos" data-linenos="11 "></span><span class="nv">$FileCreateMode</span> <span class="m">0640</span>
+<span class="linenos" data-linenos="12 "></span><span class="nv">$DirCreateMode</span> <span class="m">0755</span>
+<span class="linenos" data-linenos="13 "></span><span class="nv">$Umask</span> <span class="m">0022</span>
 <span class="linenos" data-linenos="14 "></span>
-<span class="linenos" data-linenos="15 "></span><span class="c1"># Set the default permissions for all log files.</span>
-<span class="linenos" data-linenos="16 "></span><span class="nv">$FileOwner</span> root
-<span class="linenos" data-linenos="17 "></span><span class="nv">$FileGroup</span> adm
-<span class="linenos" data-linenos="18 "></span><span class="nv">$FileCreateMode</span> <span class="m">0640</span>
-<span class="linenos" data-linenos="19 "></span><span class="nv">$DirCreateMode</span> <span class="m">0755</span>
-<span class="linenos" data-linenos="20 "></span><span class="nv">$Umask</span> <span class="m">0022</span>
-<span class="linenos" data-linenos="21 "></span>
-<span class="linenos" data-linenos="22 "></span><span class="nv">$ActionQueueType</span> LinkedList     <span class="c1"># create a queue stored in the RAM</span>
-<span class="linenos" data-linenos="23 "></span><span class="nv">$ActionQueueFileName</span> sek_fwd    <span class="c1"># set up the prefix for writting</span>
-<span class="linenos" data-linenos="24 "></span><span class="nv">$ActionQueueMaxDiskSpace</span> 5g     <span class="c1"># allow 5 giga of storage for the buffer</span>
-<span class="linenos" data-linenos="25 "></span><span class="nv">$ActionQueueSaveOnShutdown</span> on   <span class="c1"># write on disk is the rsyslog is whut down</span>
-<span class="linenos" data-linenos="26 "></span><span class="nv">$ActionResumeRetryCount</span> -1      <span class="c1"># prevent the rsyslog from droping the logs if the connexion is interrupted</span>
-<span class="linenos" data-linenos="27 "></span>
-<span class="linenos" data-linenos="28 "></span><span class="c1"># Where to place spool and state files</span>
-<span class="linenos" data-linenos="29 "></span><span class="nv">$WorkDirectory</span> /var/spool/rsyslog
-<span class="linenos" data-linenos="30 "></span>
-<span class="linenos" data-linenos="31 "></span><span class="k">if</span> <span class="o">(</span><span class="nv">$syslogtag</span> contains <span class="s1">&#39;linux_auditbeat&#39;</span><span class="o">)</span> <span class="k">then</span> <span class="o">{</span>
-<span class="linenos" data-linenos="32 "></span>     action<span class="o">(</span>
-<span class="linenos" data-linenos="33 "></span>         <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;omfwd&quot;</span>
-<span class="linenos" data-linenos="34 "></span>         <span class="nv">protocol</span><span class="o">=</span><span class="s2">&quot;tcp&quot;</span>
-<span class="linenos" data-linenos="35 "></span>         <span class="nv">target</span><span class="o">=</span><span class="s2">&quot;YOUR_RSYSLOG_DESTINATION_SERVER&quot;</span>
-<span class="linenos" data-linenos="36 "></span>         <span class="nv">port</span><span class="o">=</span><span class="s2">&quot;514&quot;</span>
-<span class="linenos" data-linenos="37 "></span>         <span class="nv">TCP_Framing</span><span class="o">=</span><span class="s2">&quot;octet-counted&quot;</span>
-<span class="linenos" data-linenos="38 "></span>     <span class="o">)</span>
-<span class="linenos" data-linenos="39 "></span><span class="o">}</span>
-<span class="linenos" data-linenos="40 "></span>
-<span class="linenos" data-linenos="41 "></span><span class="c1"># Rules</span>
-<span class="linenos" data-linenos="42 "></span>*.*          -/var/log/syslog
+<span class="linenos" data-linenos="15 "></span><span class="nv">$ActionQueueType</span> LinkedList     <span class="c1"># create a queue stored in the RAM</span>
+<span class="linenos" data-linenos="16 "></span><span class="nv">$ActionQueueFileName</span> sek_fwd    <span class="c1"># set up the prefix for writting</span>
+<span class="linenos" data-linenos="17 "></span><span class="nv">$ActionQueueMaxDiskSpace</span> 5g     <span class="c1"># allow 5 giga of storage for the buffer</span>
+<span class="linenos" data-linenos="18 "></span><span class="nv">$ActionQueueSaveOnShutdown</span> on   <span class="c1"># write on disk is the rsyslog is whut down</span>
+<span class="linenos" data-linenos="19 "></span><span class="nv">$ActionResumeRetryCount</span> -1      <span class="c1"># prevent the rsyslog from droping the logs if the connexion is interrupted</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="c1"># Where to place spool and state files</span>
+<span class="linenos" data-linenos="22 "></span><span class="nv">$WorkDirectory</span> /var/spool/rsyslog
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span><span class="c1"># Rules</span>
+<span class="linenos" data-linenos="25 "></span>*.*          -/var/log/syslog
+</code></pre></div>
+<p>And add a dedicated configuration file for the Auditbeat logs in <code>/etc/rsyslog.d/8-linux_auditbeat.conf</code> to be sent to a log concentrator.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>module<span class="o">(</span><span class="nv">load</span><span class="o">=</span><span class="s2">&quot;imfile&quot;</span> <span class="nv">PollingInterval</span><span class="o">=</span><span class="s2">&quot;10&quot;</span><span class="o">)</span>              <span class="c1">#needs to be done just once</span>
+<span class="linenos" data-linenos=" 2 "></span>input<span class="o">(</span><span class="nv">type</span><span class="o">=</span><span class="s2">&quot;imfile&quot;</span>
+<span class="linenos" data-linenos=" 3 "></span>      <span class="nv">File</span><span class="o">=</span><span class="s2">&quot;/tmp/auditbeat/auditbeat&quot;</span>
+<span class="linenos" data-linenos=" 4 "></span>      <span class="nv">Tag</span><span class="o">=</span><span class="s2">&quot;linux_auditbeat&quot;</span>
+<span class="linenos" data-linenos=" 5 "></span>      <span class="nv">Severity</span><span class="o">=</span><span class="s2">&quot;info&quot;</span>
+<span class="linenos" data-linenos=" 6 "></span>      <span class="nv">Facility</span><span class="o">=</span><span class="s2">&quot;local7&quot;</span><span class="o">)</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">if</span> <span class="o">(</span><span class="nv">$syslogtag</span> contains <span class="s1">&#39;linux_auditbeat&#39;</span><span class="o">)</span> <span class="k">then</span> <span class="o">{</span>
+<span class="linenos" data-linenos=" 9 "></span>     action<span class="o">(</span>
+<span class="linenos" data-linenos="10 "></span>         <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;omfwd&quot;</span>
+<span class="linenos" data-linenos="11 "></span>         <span class="nv">protocol</span><span class="o">=</span><span class="s2">&quot;tcp&quot;</span>
+<span class="linenos" data-linenos="12 "></span>         <span class="nv">target</span><span class="o">=</span><span class="s2">&quot;YOUR_RSYSLOG_DESTINATION_SERVER&quot;</span>
+<span class="linenos" data-linenos="13 "></span>         <span class="nv">port</span><span class="o">=</span><span class="s2">&quot;514&quot;</span>
+<span class="linenos" data-linenos="14 "></span>         <span class="nv">TCP_Framing</span><span class="o">=</span><span class="s2">&quot;octet-counted&quot;</span>
+<span class="linenos" data-linenos="15 "></span>     <span class="o">)</span>
+<span class="linenos" data-linenos="16 "></span><span class="o">}</span>
 </code></pre></div>
 <blockquote>
 <p>Don't forget to change the value of <code>YOUR_RSYSLOG_DESTINATION_SERVER</code> in the bottom of the <code>rsyslog.conf</code> file</p>
