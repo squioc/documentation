@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://docs.sekoia.io/integrations/linux/">
       
       <link rel="icon" href="../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.5">
     
     
       
@@ -25,10 +25,6 @@
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
         
-          
-          
-          <meta name="theme-color" content="#4051b5">
-        
       
     
     
@@ -36,8 +32,8 @@
       
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,700%7C&display=fallback">
-        <style>:root{--md-text-font-family:"Raleway";--md-code-font-family:""}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"Open Sans";--md-code-font-family:""}</style>
       
     
     
@@ -56,7 +52,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
     <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
@@ -1926,7 +1922,7 @@
 On most linux servers, two packages need to be installed: rsyslog and rsyslog-gnutls.</p>
 <h3 id="download-the-certificate">Download the certificate</h3>
 <p>In order to allow the connection of your rsyslog server to the SEKOIA.IO intake, please download the SEKOIA.IO intake certificate:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>$ wget -O /etc/rsyslog.d/SEKOIA-IO-intake.pem https://app.sekoia.io/assets/files/SEKOIA-IO-intake.pem
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>wget -O /etc/rsyslog.d/SEKOIA-IO-intake.pem https://app.sekoia.io/assets/files/SEKOIA-IO-intake.pem
 </code></pre></div>
 <h3 id="configure-the-rsyslog-server">Configure the Rsyslog server</h3>
 <p>By default, a Linux server logs common daemons activities, the above configuration forwards everything. Depending of the linux distribution and installed software, more configuration tuning could be required.</p>
@@ -1951,7 +1947,7 @@ On most linux servers, two packages need to be installed: rsyslog and rsyslog-gn
 </code></pre></div></p>
 <p>In the above <code>template</code> instruction, change the <code>YOUR_LINUX_HOSTNAME</code> variable with the correct value, and please replace <code>YOUR_INTAKE_KEY</code> variable with your intake key.</p>
 <h3 id="restart-rsyslog">Restart rsyslog</h3>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>$ sudo service rsyslog restart
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>sudo service rsyslog restart
 </code></pre></div>
 <h3 id="enjoy-your-events">Enjoy your events</h3>
 <p>Go to the <a href="https://app.sekoia.io/sic/events">events page</a> to watch your incoming events.</p>
