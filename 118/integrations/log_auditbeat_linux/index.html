@@ -964,11 +964,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-the-client-rsyslog" class="md-nav__link">
-    Configure the client Rsyslog
+  <a href="#configure-local-rsyslog-service" class="md-nav__link">
+    Configure local Rsyslog service
   </a>
   
-    <nav class="md-nav" aria-label="Configure the client Rsyslog">
+    <nav class="md-nav" aria-label="Configure local Rsyslog service">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1971,11 +1971,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-the-client-rsyslog" class="md-nav__link">
-    Configure the client Rsyslog
+  <a href="#configure-local-rsyslog-service" class="md-nav__link">
+    Configure local Rsyslog service
   </a>
   
-    <nav class="md-nav" aria-label="Configure the client Rsyslog">
+    <nav class="md-nav" aria-label="Configure local Rsyslog service">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2264,7 +2264,7 @@ By default, Auditbeat uses a configuration that’s tailored to the operating sy
 <blockquote>
 <p>Don't forget to set the right level of permission of the new <code>auditbeat.yml</code> if you edited a new one.
 <code>sudo chmod 0600 auditbeat.yml</code>
-Plus in this case ensure the owner of the file is root: <code>sudo chown root:root auditbeat.yml</code></p>
+Plus in this case ensure the owner of the file is <code>root</code>: <code>sudo chown root:root auditbeat.yml</code></p>
 </blockquote>
 <p>Auditbeat comes with predefined assets for parsing, indexing, and visualizing your data. To load these assets:
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>sudo auditbeat -e
@@ -2278,7 +2278,7 @@ Plus in this case ensure the owner of the file is root: <code>sudo chown root:ro
 <blockquote>
 <p>Check your logs in <code>/tmp/auditbeat/auditbeat</code> in JSON format.</p>
 </blockquote>
-<h4 id="configure-the-client-rsyslog">Configure the client Rsyslog</h4>
+<h4 id="configure-local-rsyslog-service">Configure local Rsyslog service</h4>
 <p>In order to allow the rsyslog to work properly, please ensure the following packages are installed:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>sudo apt install rsyslog
 </code></pre></div>
