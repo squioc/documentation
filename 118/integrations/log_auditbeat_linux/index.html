@@ -2305,9 +2305,10 @@ Plus in this case ensure the owner of the file is <code>root</code>: <code>sudo 
 <span class="linenos" data-linenos="20 "></span>
 <span class="linenos" data-linenos="21 "></span><span class="c1"># Where to place spool and state files</span>
 <span class="linenos" data-linenos="22 "></span><span class="nv">$WorkDirectory</span> /var/spool/rsyslog
-<span class="linenos" data-linenos="23 "></span>
-<span class="linenos" data-linenos="24 "></span><span class="c1"># Rules</span>
-<span class="linenos" data-linenos="25 "></span>*.*          -/var/log/syslog
+<span class="linenos" data-linenos="23 "></span><span class="nv">$IncludeConfig</span> /etc/rsyslog.d/*.conf
+<span class="linenos" data-linenos="24 "></span>
+<span class="linenos" data-linenos="25 "></span><span class="c1"># Rules</span>
+<span class="linenos" data-linenos="26 "></span>*.*          -/var/log/syslog
 </code></pre></div>
 <p>And add a dedicated configuration file for the Auditbeat logs in <code>/etc/rsyslog.d/8-linux_auditbeat.conf</code> to be sent to a log concentrator.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>module<span class="o">(</span><span class="nv">load</span><span class="o">=</span><span class="s2">&quot;imfile&quot;</span> <span class="nv">PollingInterval</span><span class="o">=</span><span class="s2">&quot;10&quot;</span><span class="o">)</span>              <span class="c1">#needs to be done just once</span>
