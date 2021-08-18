@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://docs.sekoia.io/intelligence_center/api/">
       
       <link rel="icon" href="../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.5">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.1.5">
     
     
       
@@ -885,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../integrations/log_auditbeat_linux/" class="md-nav__link">
+      <a href="../../integrations/auditbeat_linux/" class="md-nav__link">
         Auditbeat Linux
       </a>
     </li>
@@ -2099,7 +2099,7 @@ and then only fetch additional context when an indicator matched.</p>
 <p>It is possible to get a specific object by its ID by using the <code>GET v2/inthreat/objects/{object_id}</code> endpoint.</p>
 <p>For relationships, use the <code>GET v2/inthreat/relationships/{relationship_id}</code> endpoint instead.</p>
 <h2 id="looking-for-an-ioc">Looking for an IOC</h2>
-<p>It is possible to look for a specific indicator of compromise in the Intelligence Center and get its context with the <code>GET v2/inthreat/indicators/context</code> endpoint (see <a href="https://docs.sekoia.io/api/threat%20intelligence%20database#operation/get_indicator_context_resource">documentation</a>).</p>
+<p>It is possible to look for a specific indicator of compromise in the Intelligence Center and get its context with the <code>GET v2/inthreat/indicators/context</code> endpoint (see <a href="https://docs.sekoia.io/api/intelligence%20center:%20cyber%20threat%20intelligence%20database#operation/get_indicator_context_resource">documentation</a>).</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">json</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">requests</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="kn">from</span> <span class="nn">posixpath</span> <span class="kn">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">urljoin</span>

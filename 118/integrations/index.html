@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://docs.sekoia.io/integrations/">
       
       <link rel="icon" href="../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.5">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.1.5">
     
     
       
@@ -984,7 +984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="log_auditbeat_linux/" class="md-nav__link">
+      <a href="auditbeat_linux/" class="md-nav__link">
         Auditbeat Linux
       </a>
     </li>
@@ -1922,7 +1922,7 @@
 <p>SEKOIA.IO rely on your log to identify threats and malicious activities.</p>
 <p>In this chapter, you will learn how to configure your log system to make it forward your events to SEKOIA.IO.</p>
 <p>SEKOIA.IO is able to collect logs through various mechanisms, configuration on your side should be easy! Here is an overview on how integration could be done with SEKOIA.IO.</p>
-<p><img alt="SEKOIA.IO Operation Center integration overview" src="/assets/sekoiaio_oc_integration.png" style="max-width:800px" /></p>
+<p><img alt="SEKOIA.IO Operation Center integration overview" src="../assets/sekoiaio_oc_integration.png" style="max-width:100%" /></p>
 <p>SEKOIA.IO supports the following log collectors:</p>
 <ul>
 <li>Syslog over TLS (<code>intake.sekoia.io:10514</code>): you can forward your events by using the Syslog protocol specified in RFC 5424.</li>
@@ -1934,7 +1934,7 @@
 <h2 id="syslog-integration">Syslog integration</h2>
 <p>We are providing documentation and example configurations on how to configure your log system for Rsyslog, but it should be easy to configure other log collectors to forward their events to SEKOIA.IO.</p>
 <h2 id="https-integration">HTTPS integration</h2>
-<p>To push your events through our HTTP log collector, you have to <code>POST</code> your logs in the JSON format. To send us events, you should set <code>Content-Type</code> HTTP header to <code>application/javascript</code>.</p>
+<p>To push your events through our HTTP log collector, you have to <code>POST</code> your logs in the JSON format. To send us events, you should set <code>Content-Type</code> HTTP header to <code>application/json</code>.</p>
 <h2 id="cloud-saas-integration">Cloud &amp; SaaS integration</h2>
 <p>SEKOIA.IO is also able to retrieve logs and data from cloud platforms, such as Microsoft Azure, Amazon Web Services or Google Cloud.</p>
 <h2 id="log-formats">Log formats</h2>
@@ -1955,7 +1955,7 @@
 <h3 id="operating-systems">Operating Systems</h3>
 <ul>
 <li><a href="linux/">Linux</a></li>
-<li><a href="log_auditbeat_linux/">Linux / AuditBeat</a></li>
+<li><a href="auditbeat_linux/">Linux / AuditBeat</a></li>
 <li><a href="windows/">Windows / NXLog</a></li>
 <li><a href="log_insight_windows/">Windows / Log Insight</a></li>
 </ul>

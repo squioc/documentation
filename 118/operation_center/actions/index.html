@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://docs.sekoia.io/operation_center/actions/">
       
       <link rel="icon" href="../../assets/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.5">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.1.5">
     
     
       
@@ -887,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../integrations/log_auditbeat_linux/" class="md-nav__link">
+      <a href="../../integrations/auditbeat_linux/" class="md-nav__link">
         Auditbeat Linux
       </a>
     </li>
@@ -2176,7 +2176,7 @@
                 <h1 id="actions">Actions</h1>
 <h2 id="types-of-actions">Types of Actions</h2>
 <p>Once the user has selected and configured a <code>Trigger</code>, most of the time an <code>Operator</code> will follow, then it is time to insert a first <code>Action</code>.</p>
-<p><img alt="SEKOIA.IO Operation Center Filter on Actions" src="../../assets/operation_center/playbooks/filter_actions.png" style="max-width:600px" /></p>
+<p><img alt="SEKOIA.IO Operation Center Filter on Actions" src="../../assets/operation_center/playbooks/filter_actions.png" style="max-width:60%" /></p>
 <p>The <code>Actions</code> execute specific activities depending on the needs. You will find hereafter the main <code>Actions</code> that a user will be able to use.</p>
 <h3 id="sekoia-suggestions">Sekoia suggestions</h3>
 <h4 id="getters">Getters</h4>
@@ -2208,7 +2208,7 @@ The only mandatory information needed is the <code>case_uuid</code> that you can
 <p>Note: Copy-past in the research section: <code>Read JSON File</code> to retreive the related <code>Block</code>.
 With this module, a user can collect the output of the <code>Action &gt; Get an alert</code> when the <code>parameter STIX</code> is activated. Here is an example of use:</p>
 </blockquote>
-<p><img alt="SEKOIA.IO Operation Center Trigger JSON File" src="../../assets/operation_center/playbooks/json_file.png" style="max-width:600px" /></p>
+<p><img alt="SEKOIA.IO Operation Center Trigger JSON File" src="../../assets/operation_center/playbooks/json_file.png" style="max-width:60%" /></p>
 <h4 id="setters">Setters</h4>
 <p>On the playbook GUI, it is possible to set <code>Blocks</code> such as Create, Update, Patch, Add, Post, Delete activities.</p>
 <h5 id="create-blocks">Create Blocks</h5>
@@ -2238,7 +2238,7 @@ With this module, a user can collect the output of the <code>Action &gt; Get an 
 </ul>
 <h5 id="trigger-an-action-on-the-event-workflow">Trigger an action on the event workflow</h5>
 <p>Is is possible to trigger an action on an alert as explained in the webhook section. For instance the following image shows how to properly close an alert afer analysing it.</p>
-<p><img alt="SEKOIA.IO Operation Center Trigger an alert on worksflow" src="../../assets/operation_center/playbooks/trigger_an_action_on_the_alert_workflow.png" style="max-width:600px" /></p>
+<p><img alt="SEKOIA.IO Operation Center Trigger an alert on worksflow" src="../../assets/operation_center/playbooks/trigger_an_action_on_the_alert_workflow.png" style="max-width:60%" /></p>
 <p>As of today, the available action_uuid are the following :
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">Action</span><span class="o">:</span><span class="s">&quot;Acknowledge&quot;</span><span class="p">,</span>   <span class="n">Description</span><span class="o">:</span> <span class="s">&quot;Acknowledge the alert&quot;</span><span class="p">,</span>   <span class="n">action_uuid</span><span class="o">:</span><span class="s">&quot;937bdabf-6a08-434b-b6d3-d7447e4e452a&quot;</span>
 <span class="linenos" data-linenos="2 "></span><span class="n">Action</span><span class="o">:</span><span class="s">&quot;Validate&quot;</span><span class="p">,</span>      <span class="n">Description</span><span class="o">:</span> <span class="s">&quot;Validate the alert&quot;</span><span class="p">,</span>      <span class="n">action_uuid</span><span class="o">:</span><span class="s">&quot;c39a0a95-aa2c-4d0d-8d2e-d3decf426eea&quot;</span>
@@ -2262,14 +2262,14 @@ With this module, a user can collect the output of the <code>Action &gt; Get an 
 <p>If you have subscribed to one or more of the following online tools, you should be able to get an API key, and simply use it on your playbooks.</p>
 </blockquote>
 <h5 id="iknowwhatyoudownload">IKnowWhatYouDownload</h5>
-<p>The module allows to request information such as: </p>
+<p>The module allows to request information such as:</p>
 <ul>
 <li>IP history</li>
 <li>IP Check</li>
 <li>IP List</li>
 </ul>
 <h5 id="onyphe">Onyphe</h5>
-<p>The module allows to request information such as: </p>
+<p>The module allows to request information such as:</p>
 <ul>
 <li>Scan (SYN, Onion...)</li>
 <li>Lookups (Md5, reverse DNS)</li>
@@ -2277,7 +2277,7 @@ With this module, a user can collect the output of the <code>Action &gt; Get an 
 <li>Scan Domain Name CTLs</li>
 </ul>
 <h5 id="riskiq">RiskIQ</h5>
-<p>The module allows to request information such as: </p>
+<p>The module allows to request information such as:</p>
 <ul>
 <li>Whois</li>
 <li>Reverse Whois (organisation, nameserver, name, email, address)</li>
@@ -2285,13 +2285,13 @@ With this module, a user can collect the output of the <code>Action &gt; Get an 
 <li>SSL host, certificate (SHA-1, Serial Number) / DNS</li>
 </ul>
 <h5 id="shodan">Shodan</h5>
-<p>The module allows to request information such as: </p>
+<p>The module allows to request information such as:</p>
 <ul>
 <li>Search for Host information</li>
 <li>Get DNS reverse, resolve, domain</li>
 </ul>
 <h5 id="virustotal">Virustotal</h5>
-<p>The module allows to request information such as: </p>
+<p>The module allows to request information such as:</p>
 <ul>
 <li>Scan (URL, IP, Hash, File, Domain)</li>
 </ul>
@@ -2305,16 +2305,16 @@ With this module, a user can collect the output of the <code>Action &gt; Get an 
 </ul>
 <h5 id="mandrill">Mandrill</h5>
 <p>Email notification is available, the following example shows an automatic email sent when a new alert is raised.</p>
-<p><img alt="SEKOIA.IO Operation Center Filter on Actions" src="../../assets/operation_center/playbooks/mandril.png" style="max-width:600px" /></p>
+<p><img alt="SEKOIA.IO Operation Center Filter on Actions" src="../../assets/operation_center/playbooks/mandril.png" style="max-width:60%" /></p>
 <p>The mandatory fields are:</p>
 <ul>
 <li>The recipient email address, name</li>
 <li>The sender email address, name</li>
 <li>The subject</li>
 <li>The HTML mail content, here is a simple example:
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>A new alert is declared: {{ node.2.rule.name }}.<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span> 
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>A new alert is declared: {{ node.2.rule.name }}.<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="2 "></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Description: {{ node.2.rule.description }}.<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="3 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>More details:<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span> 
+<span class="linenos" data-linenos="3 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>More details:<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="4 "></span>    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Urgency: {{ node.2.urgency.value }}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="5 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Entity: {{ node.2.entity.name }}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="6 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Kill chain: {{ node.2.kill_chain_short_id }}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
