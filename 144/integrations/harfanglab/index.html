@@ -1860,9 +1860,10 @@
                 <h2 id="overview">Overview</h2>
 <p>HarfangLab is an Endpoint detection and response (EDR) solution certified by ANSSI since 2020. </p>
 <p>This setup guide will show you how to forward events produced by HarfangLab EDR to SEKOIA.IO.</p>
-<p>Theses changes have to be made from your HarfangLab instance web portal.</p>
+<p>Theses changes have to be made from your HarfangLab instance web portal (provided by HarfangLab).</p>
 <h2 id="harfanglab-edr-logs">HarfangLab EDR logs</h2>
-<p>You first need to navigate to <code>Administration &gt; Configuration</code>, then switch to the <code>Connectors</code> tab.</p>
+<p>Firstable your need to navigate to <code>Personal Settings</code>,  and in the <code>Api token</code> get your token or generate a new one.</p>
+<p>Then you need to navigate to <code>Administration &gt; Configuration</code>, and switch to the <code>Connectors</code> tab.</p>
 <p>In the <code>Syslog connector</code> panel, select the logs you want to export:</p>
 <ul>
 <li>Process</li>
@@ -1872,7 +1873,7 @@
 <li>InjectedThread</li>
 <li>Security Event</li>
 </ul>
-<p>Then configure the syslog information with the following information:</p>
+<p>Configure the syslog information with the following details:</p>
 <ul>
 <li>Host: <code>intake.sekoia.io</code></li>
 <li>Port: <code>10514</code></li>
@@ -1881,7 +1882,7 @@
 <li>Structured data: <code>[SEKOIA@53288 intake_key="YOUR_INTAKE_KEY"]</code></li>
 <li>Protocol: <code>TCP/SSL</code></li>
 </ul>
-<p>In the above field <code>Structured data</code>, please replace <code>YOUR_INTAKE_KEY</code> variable with your intake key.</p>
+<p>In the above field <code>Structured data</code>, please replace <code>YOUR_INTAKE_KEY</code> variable with your intake key generated in SEKOIA.IO's <a href="https://app.sekoia.io/operations/intakes">intake page</a>.</p>
 <p>Finaly select the <code>Protocol</code> option: <code>TCP/SSL</code>, leave the other options to default.</p>
 <p><img alt="HarfangLab EDR" src="../../assets/harfanglab_edr.png" style="max-width:60%" /></p>
 <h2 id="enjoy-your-events">Enjoy your events</h2>
