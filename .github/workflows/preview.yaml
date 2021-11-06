@@ -28,6 +28,9 @@ jobs:
       - name: Install Docs-Mkdocs
         run: pip install -r requirements.txt
 
+      - name: install custom plugin
+        run: python setup.py install
+
       - name: Build site
         run: mkdocs build
 
